@@ -1,33 +1,213 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TECHNOCRATS // CLUB_LINKS.EXE</title>
+  
+  <!-- Retro Pixel Font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&display=swap" rel="stylesheet">
+  
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            pixel: ['"Press Start 2P"', 'monospace'],
+            vt: ['"VT323"', 'monospace']
+          },
+          colors: {
+            cream: '#F6F3E7',
+            retroYellow: '#FBE86D',
+            retroGreen: '#4ade80',
+            retroDarkGreen: '#166534',
+            retroDark: '#121212',
+            retroBorder: '#1e1e1e'
+          },
+          boxShadow: {
+            'pixel': '4px 4px 0px 0px #1e1e1e',
+            'pixel-lg': '6px 6px 0px 0px #1e1e1e',
+            'pixel-active': '0px 0px 0px 0px #1e1e1e'
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    /* Pixel rendering optimizations */
+    * {
+      image-rendering: pixelated;
+      image-rendering: -moz-crisp-edges;
+      image-rendering: crisp-edges;
+    }
+
+    body {
+      background-color: #F6F3E7;
+      cursor: default;
+    }
+
+    /* Pixelated Search Bar Inner Shadow */
+    .retro-search {
+      border: 3px solid #1e1e1e;
+      box-shadow: inset 2px 2px 0px #a3a3a3, 3px 3px 0px #1e1e1e;
+    }
+
+    /* Tactile Pixel Buttons */
+    .pixel-btn {
+      border: 3px solid #1e1e1e;
+      box-shadow: 4px 4px 0px #1e1e1e;
+      transition: all 0.08s ease-in-out;
+    }
+    .pixel-btn:hover {
+      transform: translate(-1px, -1px);
+      box-shadow: 5px 5px 0px #1e1e1e;
+    }
+    .pixel-btn:active {
+      transform: translate(4px, 4px);
+      box-shadow: 0px 0px 0px #1e1e1e;
+    }
+
+    /* Custom Pixel Loading Animation */
+    @keyframes loadStep {
+      0% { width: 0%; }
+      30% { width: 40%; }
+      70% { width: 75%; }
+      100% { width: 100%; }
+    }
+    .loading-fill {
+      animation: loadStep 2s steps(8) infinite;
+    }
+  </style>
 </head>
-<body>
-<div class="bg-image"></div>
+<body class="min-h-screen text-retroDark flex flex-col items-center justify-between p-4 selection:bg-retroYellow selection:text-black">
 
-<div class="bg-text">
- <img src="your image name/path" alt="your name" width="145" height="145">
-  <h1 style="font: size 45px;">your name</h1>
-  <p class="intro">a brief intro</p>
+  <!-- Main Container -->
+  <main class="w-full max-w-md mt-6 flex flex-col items-center">
 
-  
-  <ul class="social-icons">
-    <span class="headerLine"></span> <br>
-      
-      <li><a href="#" class="social-icon"> <i class="fa fa-github"></i></a></li>  
-      <li><a href="#" class="social-icon"> <i class="fa fa-facebook"></i></a></li>
-      <li><a href="#" class="social-icon"> <i class="fa fa-twitter"></i></a></li>
-      <li><a href="#" class="social-icon"> <i class="fa fa-instagram"></i></a></li> <br>
+    <!-- Top Pixelated Search Bar -->
+    <div class="w-full bg-white retro-search rounded-full py-2.5 px-5 flex items-center gap-3 mb-8">
+      <!-- Pixel Search Icon -->
+      <svg class="w-5 h-5 flex-shrink-0" viewBox="0 0 16 16" fill="currentColor">
+        <path fill-rule="evenodd" d="M6 1a5 5 0 0 0-3.5 8.5l-2 2 1.4 1.4 2-2A5 5 0 1 0 6 1zm0 2a3 3 0 1 1 0 6 3 3 0 0 1 0-6z"/>
+      </svg>
+      <span class="font-pixel text-[11px] text-neutral-800 tracking-wider">technocrats.exe</span>
+    </div>
 
-      <span class="headerLine"></span> <br> 
-  </ul>
+    <!-- Header Section with Pixel Dino & Sparkles -->
+    <div class="relative w-full flex items-center justify-between px-2 mb-8">
+      <!-- 8-Bit Dino Icon (Left) -->
+      <div class="w-14 h-14 relative group">
+        <svg viewBox="0 0 24 24" class="w-full h-full text-black fill-current drop-shadow-[2px_2px_0px_rgba(0,0,0,0.2)]">
+          <!-- Pixel Dino -->
+          <path d="M14 2h6v2h-6V2zm6 2h2v6h-2V4zm-2 6h2v2h-2v-2zm-6-4h6v2h-6V6zm-2 2h2v4h-2V8zm-2 4h2v2h-2v-2zm-2 2h2v2H8v-2zm-2 2h2v2H6v-2zm-2-2h2v2H4v-2zm-2-2h2v2H2v-2zm0-4h2v4H2v-4zm6 10h10v2H8v-2zm10-2h4v2h-4v-2zm-4 4h2v2h-2v-2zm4 0h2v2h-2v-2z"/>
+        </svg>
+      </div>
 
-  
+      <!-- Main Title (Center) -->
+      <div class="text-center">
+        <h1 class="font-pixel text-lg sm:text-xl font-bold tracking-tight text-retroDark mb-1">
+          TECHNOCRATS
+        </h1>
+        <p class="font-vt text-lg text-neutral-600 uppercase tracking-wider">
+          &lt; The Official Tech Club /&gt;
+        </p>
+      </div>
 
-</div>
+      <!-- 8-Bit Pixel Sparkles (Right) -->
+      <div class="w-12 h-12 flex flex-col items-end justify-start">
+        <svg class="w-8 h-8 text-sky-400 fill-current animate-pulse" viewBox="0 0 16 16">
+          <path d="M7 0h2v5h5v2H9v5H7V7H2V5h5V0z"/>
+        </svg>
+        <svg class="w-4 h-4 text-sky-500 fill-current ml-2" viewBox="0 0 16 16">
+          <path d="M7 0h2v5h5v2H9v5H7V7H2V5h5V0z"/>
+        </svg>
+      </div>
+    </div>
 
-<script src="script.js"></script>
+    <!-- Pixel Folder Banner Card -->
+    <div class="w-full bg-retroYellow border-[3px] border-retroDark shadow-pixel p-4 mb-6 relative">
+      <div class="absolute -top-3 left-4 bg-retroDark text-white px-2 py-0.5 font-pixel text-[8px] uppercase">
+        DIR_INFO
+      </div>
+      <div class="flex items-center gap-3">
+        <!-- 8-Bit Folder SVG -->
+        <svg class="w-10 h-10 flex-shrink-0" viewBox="0 0 24 24" fill="#EAB308" stroke="#1e1e1e" stroke-width="1.5">
+          <path d="M2 4h6l2 2h12v14H2V4z"/>
+          <path d="M2 9h20" stroke="#1e1e1e"/>
+        </svg>
+        <div>
+          <h2 class="font-pixel text-[10px] font-bold">COMMUNITY PORTAL</h2>
+          <p class="font-vt text-base text-neutral-800 leading-tight">Click below to access our source code, events & discussions.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Link Hub Buttons -->
+    <div class="w-full space-y-4 mb-8">
+
+      <!-- GitHub -->
+      <a href="https://github.com/atulyabharat21/Social-link" target="_blank" rel="noopener noreferrer"
+         class="pixel-btn w-full bg-white hover:bg-neutral-50 p-3.5 flex items-center justify-between group">
+        <div class="flex items-center gap-3">
+          <span class="font-pixel text-[9px] bg-retroDark text-white px-2 py-1">01</span>
+          <span class="font-pixel text-[11px] group-hover:text-emerald-700">GITHUB REPOS</span>
+        </div>
+        <span class="font-vt text-xl font-bold">►</span>
+      </a>
+
+      <!-- Discord Community -->
+      <a href="https://discord.gg/your-invite" target="_blank" rel="noopener noreferrer"
+         class="pixel-btn w-full bg-white hover:bg-neutral-50 p-3.5 flex items-center justify-between group">
+        <div class="flex items-center gap-3">
+          <span class="font-pixel text-[9px] bg-retroDark text-white px-2 py-1">02</span>
+          <span class="font-pixel text-[11px] group-hover:text-indigo-700">DISCORD SERVER</span>
+        </div>
+        <span class="font-vt text-xl font-bold">►</span>
+      </a>
+
+      <!-- LinkedIn -->
+      <a href="https://linkedin.com/company/your-club" target="_blank" rel="noopener noreferrer"
+         class="pixel-btn w-full bg-white hover:bg-neutral-50 p-3.5 flex items-center justify-between group">
+        <div class="flex items-center gap-3">
+          <span class="font-pixel text-[9px] bg-retroDark text-white px-2 py-1">03</span>
+          <span class="font-pixel text-[11px] group-hover:text-blue-700">LINKEDIN PAGE</span>
+        </div>
+        <span class="font-vt text-xl font-bold">►</span>
+      </a>
+
+      <!-- Instagram / Events -->
+      <a href="https://instagram.com/your-club" target="_blank" rel="noopener noreferrer"
+         class="pixel-btn w-full bg-white hover:bg-neutral-50 p-3.5 flex items-center justify-between group">
+        <div class="flex items-center gap-3">
+          <span class="font-pixel text-[9px] bg-retroDark text-white px-2 py-1">04</span>
+          <span class="font-pixel text-[11px] group-hover:text-rose-700">INSTAGRAM FEED</span>
+        </div>
+        <span class="font-vt text-xl font-bold">►</span>
+      </a>
+
+    </div>
+
+    <!-- Retro 8-bit Loading Bar (From your reference) -->
+    <div class="w-full flex flex-col items-center gap-2 mb-8">
+      <div class="font-pixel text-[9px] tracking-widest text-neutral-800">
+        LOADING...
+      </div>
+      <div class="w-64 h-7 border-[3px] border-retroDark bg-white shadow-pixel p-1 flex items-center">
+        <!-- Pixel Progress Grid Blocks -->
+        <div class="loading-fill h-full bg-retroGreen border-r-2 border-retroDark"></div>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- Retro Pixel Footer -->
+  <footer class="text-center font-pixel text-[8px] text-neutral-500 pb-4">
+    MADE BY TECHNOCRATS // 2026
+  </footer>
+
 </body>
 </html>
