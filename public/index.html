@@ -23,13 +23,12 @@
           colors: {
             neonCyan: '#00f0ff',
             neonBlue: '#0088ff',
-            retroBg: '#0d1117',
-            retroCard: 'rgba(15, 23, 42, 0.88)'
+            retroBg: '#0a0f1a',
           },
           boxShadow: {
             'pixel-neon': '4px 4px 0px 0px #00f0ff',
             'pixel-box': '4px 4px 0px 0px #000000',
-            'glow': '0 0 15px rgba(0, 240, 255, 0.4)'
+            'pixel-btn': '3px 3px 0px 0px #00f0ff'
           }
         }
       }
@@ -44,15 +43,13 @@
     }
 
     body {
-      /* Background setup with GSV campus image */
-      background: linear-gradient(rgba(10, 15, 26, 0.85), rgba(10, 15, 26, 0.92)), url('IMG_4983.jpg');
+      background: linear-gradient(rgba(10, 15, 26, 0.88), rgba(10, 15, 26, 0.94)), url('ascii-magic-1.jpg');
       background-size: cover;
       background-position: center;
       background-attachment: fixed;
       background-repeat: no-repeat;
     }
 
-    /* Tactile Pixel Buttons */
     .pixel-btn {
       border: 2px solid #00f0ff;
       box-shadow: 4px 4px 0px #000000;
@@ -60,20 +57,18 @@
     }
     .pixel-btn:hover {
       transform: translate(-2px, -2px);
-      box-shadow: 6px 6px 0px #00f0ff;
+      box-shadow: 5px 5px 0px #00f0ff;
     }
     .pixel-btn:active {
       transform: translate(2px, 2px);
       box-shadow: 0px 0px 0px #000;
     }
 
-    /* Pixel Section Container */
     .pixel-card {
-      border: 3px solid #1e293b;
-      box-shadow: 5px 5px 0px #000000;
+      border: 2px solid #1e293b;
+      box-shadow: 4px 4px 0px #000000;
     }
 
-    /* Scanline CRT simulation overlay */
     .scanlines {
       background: linear-gradient(
         rgba(18, 16, 16, 0) 50%, 
@@ -83,7 +78,6 @@
       pointer-events: none;
     }
 
-    /* Retro Loading Bar */
     @keyframes loadPulse {
       0% { width: 10%; }
       50% { width: 75%; }
@@ -97,11 +91,11 @@
 <body class="min-h-screen text-slate-100 flex flex-col items-center justify-between p-4 selection:bg-neonCyan selection:text-black relative">
   <div class="fixed inset-0 scanlines z-50"></div>
 
-  <!-- Main Container -->
-  <main class="w-full max-w-lg mt-6 flex flex-col items-center z-10">
+  <!-- Main Content Container -->
+  <main class="w-full max-w-lg mt-4 flex flex-col items-center z-10">
 
-    <!-- Top Pixel OS Address Bar -->
-    <div class="w-full bg-slate-900/90 border-2 border-neonCyan/60 rounded-none py-2 px-4 flex items-center justify-between shadow-pixel-box mb-6 backdrop-blur-md">
+    <!-- Top Pixel Address Bar -->
+    <div class="w-full bg-slate-900/90 border-2 border-neonCyan/70 py-2 px-4 flex items-center justify-between shadow-pixel-box mb-6 backdrop-blur-md">
       <div class="flex items-center gap-2">
         <span class="inline-block w-2.5 h-2.5 bg-neonCyan"></span>
         <span class="font-pixel text-[10px] text-neonCyan tracking-wider">technocratsgsv.tech</span>
@@ -109,18 +103,15 @@
       <span class="font-vt text-lg text-slate-400">GSV://PORTAL</span>
     </div>
 
-    <!-- Header Section -->
+    <!-- Header Section with Official Logo -->
     <div class="w-full flex flex-col items-center text-center mb-6">
       <div class="relative mb-3">
-        <div class="w-20 h-20 bg-slate-900 border-2 border-neonCyan flex items-center justify-center shadow-pixel-neon">
-          <!-- Pixel Dino -->
-          <svg viewBox="0 0 24 24" class="w-12 h-12 text-neonCyan fill-current">
-            <path d="M14 2h6v2h-6V2zm6 2h2v6h-2V4zm-2 6h2v2h-2v-2zm-6-4h6v2h-6V6zm-2 2h2v4h-2V8zm-2 4h2v2h-2v-2zm-2 2h2v2H8v-2zm-2 2h2v2H6v-2zm-2-2h2v2H4v-2zm-2-2h2v2H2v-2zm0-4h2v4H2v-4zm6 10h10v2H8v-2zm10-2h4v2h-4v-2zm-4 4h2v2h-2v-2zm4 0h2v2h-2v-2z"/>
-          </svg>
+        <div class="w-24 h-24 bg-white/95 border-2 border-neonCyan flex items-center justify-center shadow-pixel-neon p-2">
+          <img src="logo.png" alt="Technocrats GSV Logo" class="w-full h-full object-contain" />
         </div>
       </div>
 
-      <h1 class="font-pixel text-xl sm:text-2xl font-bold text-white tracking-wider text-transparent bg-clip-text bg-gradient-to-r from-neonCyan to-sky-400">
+      <h1 class="font-pixel text-xl sm:text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-neonCyan to-sky-400">
         TECHNOCRATS
       </h1>
       <p class="font-vt text-xl text-sky-200 mt-1 uppercase tracking-widest">
@@ -128,22 +119,21 @@
       </p>
     </div>
 
-    <!-- Social Links Section -->
-    <div class="w-full space-y-3 mb-8">
+    <!-- Link Hub Buttons -->
+    <div class="w-full space-y-3 mb-6">
       
       <!-- LinkedIn Button -->
       <a href="https://share.google/OslbTVAG0usMwDdJ9" target="_blank" rel="noopener noreferrer"
          class="pixel-btn w-full bg-slate-900/90 hover:bg-slate-800 p-3 flex items-center justify-between group backdrop-blur-md">
         <div class="flex items-center gap-3">
-          <!-- LinkedIn Pixel SVG Icon -->
-          <div class="p-1.5 bg-neonCyan text-black">
+          <div class="p-1.5 bg-neonCyan text-black flex items-center justify-center">
             <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24">
               <path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.46 10.9v8.37H9.2V10.9H6.46M7.83 6.45a1.63 1.63 0 1 0 0 3.25 1.63 1.63 0 0 0 0-3.25z"/>
             </svg>
           </div>
           <div class="text-left">
             <div class="font-pixel text-[11px] text-white group-hover:text-neonCyan">LINKEDIN</div>
-            <div class="font-vt text-sm text-slate-400">Official Club Network & Alumni</div>
+            <div class="font-vt text-sm text-slate-400">Official Club Network & Updates</div>
           </div>
         </div>
         <span class="font-vt text-2xl text-neonCyan group-hover:translate-x-1 transition-transform">►</span>
@@ -153,32 +143,31 @@
       <a href="https://www.instagram.com/technocrats.gsv?igsh=ejFqcGx5MWs5dHhj" target="_blank" rel="noopener noreferrer"
          class="pixel-btn w-full bg-slate-900/90 hover:bg-slate-800 p-3 flex items-center justify-between group backdrop-blur-md">
         <div class="flex items-center gap-3">
-          <!-- Instagram Pixel SVG Icon -->
-          <div class="p-1.5 bg-neonCyan text-black">
+          <div class="p-1.5 bg-neonCyan text-black flex items-center justify-center">
             <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24">
               <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
             </svg>
           </div>
           <div class="text-left">
             <div class="font-pixel text-[11px] text-white group-hover:text-neonCyan">INSTAGRAM</div>
-            <div class="font-vt text-sm text-slate-400">@technocrats.gsv • Stories & Updates</div>
+            <div class="font-vt text-sm text-slate-400">@technocrats.gsv • Stories & Highlights</div>
           </div>
         </div>
         <span class="font-vt text-2xl text-neonCyan group-hover:translate-x-1 transition-transform">►</span>
       </a>
 
-      <!-- GitHub Button -->
-      <a href="https://github.com/atulyabharat21/Social-link" target="_blank" rel="noopener noreferrer"
+      <!-- GitHub Repo Button -->
+      <a href="https://github.com/rudr-code/technocrats" target="_blank" rel="noopener noreferrer"
          class="pixel-btn w-full bg-slate-900/90 hover:bg-slate-800 p-3 flex items-center justify-between group backdrop-blur-md">
         <div class="flex items-center gap-3">
-          <div class="p-1.5 bg-neonCyan text-black">
+          <div class="p-1.5 bg-neonCyan text-black flex items-center justify-center">
             <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24">
               <path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/>
             </svg>
           </div>
           <div class="text-left">
             <div class="font-pixel text-[11px] text-white group-hover:text-neonCyan">GITHUB REPO</div>
-            <div class="font-vt text-sm text-slate-400">Open-Source Code & Resources</div>
+            <div class="font-vt text-sm text-slate-400">Open-Source Code & Projects</div>
           </div>
         </div>
         <span class="font-vt text-2xl text-neonCyan group-hover:translate-x-1 transition-transform">►</span>
@@ -187,15 +176,15 @@
     </div>
 
     <!-- Upcoming Events Section -->
-    <div class="w-full pixel-card bg-slate-900/90 p-4 mb-6 backdrop-blur-md">
+    <div class="w-full pixel-card bg-slate-900/90 p-4 mb-5 backdrop-blur-md">
       <div class="flex items-center justify-between border-b-2 border-slate-800 pb-2 mb-3">
         <h2 class="font-pixel text-xs text-neonCyan flex items-center gap-2">
           <span>[!]</span> UPCOMING EVENTS
         </h2>
-        <span class="font-vt text-sm text-emerald-400">LIVE REGISTRATION</span>
+        <span class="font-vt text-sm text-emerald-400">ANNOUNCEMENTS</span>
       </div>
 
-      <div class="space-y-3">
+      <div class="space-y-2.5">
         <div class="border border-slate-800 p-2.5 bg-slate-950/60 flex items-start justify-between">
           <div>
             <div class="font-pixel text-[10px] text-white">GSV HACK-A-BIT '26</div>
@@ -215,7 +204,7 @@
     </div>
 
     <!-- Team Leads Section -->
-    <div class="w-full pixel-card bg-slate-900/90 p-4 mb-6 backdrop-blur-md">
+    <div class="w-full pixel-card bg-slate-900/90 p-4 mb-5 backdrop-blur-md">
       <div class="border-b-2 border-slate-800 pb-2 mb-3">
         <h2 class="font-pixel text-xs text-neonCyan flex items-center gap-2">
           <span>&gt;</span> CORE LEADS // 2026
@@ -223,13 +212,13 @@
       </div>
 
       <div class="grid grid-cols-2 gap-3">
-        <div class="border border-slate-800 p-2 bg-slate-950/60 text-center">
+        <div class="border border-slate-800 p-2.5 bg-slate-950/60 text-center">
           <div class="font-pixel text-[9px] text-white">CLUB LEAD</div>
-          <div class="font-vt text-sm text-neonCyan">Technocrats Lead</div>
+          <div class="font-vt text-base text-neonCyan mt-0.5">Technocrats Lead</div>
         </div>
-        <div class="border border-slate-800 p-2 bg-slate-950/60 text-center">
+        <div class="border border-slate-800 p-2.5 bg-slate-950/60 text-center">
           <div class="font-pixel text-[9px] text-white">TECH HEAD</div>
-          <div class="font-vt text-sm text-neonCyan">Dev & Architecture</div>
+          <div class="font-vt text-base text-neonCyan mt-0.5">Dev & Systems</div>
         </div>
       </div>
     </div>
@@ -237,16 +226,17 @@
     <!-- Retro Loading Bar -->
     <div class="w-full flex flex-col items-center gap-1.5 mb-6">
       <span class="font-pixel text-[8px] text-slate-400">GSV_SYSTEM_READY: 100%</span>
-      <div class="w-48 h-5 border-2 border-neonCyan bg-black p-0.5">
+      <div class="w-48 h-4 border-2 border-neonCyan bg-black p-0.5">
         <div class="loading-progress h-full bg-neonCyan"></div>
       </div>
     </div>
 
   </main>
 
-  <!-- Footer -->
-  <footer class="font-pixel text-[8px] text-slate-500 text-center pb-2 z-10">
-    TECHNOCRATS • GATI SHAKTI VISHWAVIDYALAYA
+  <!-- Credit Footer -->
+  <footer class="text-center font-pixel text-[8px] text-slate-400 space-y-1.5 pb-4 z-10">
+    <div>TECHNOCRATS • GATI SHAKTI VISHWAVIDYALAYA</div>
+    <div class="text-neonCyan">MADE BY RUDRANSH MISHRA (B.TECH AI&DS 2ND YR)</div>
   </footer>
 
 </body>
