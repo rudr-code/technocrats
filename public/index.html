@@ -22,13 +22,14 @@
           },
           colors: {
             neonCyan: '#00f0ff',
-            neonBlue: '#0088ff',
-            retroBg: '#0a0f1a',
+            neonGreen: '#39ff14',
+            neonYellow: '#fefe33',
+            retroDark: '#080d1a',
           },
           boxShadow: {
             'pixel-neon': '4px 4px 0px 0px #00f0ff',
             'pixel-box': '4px 4px 0px 0px #000000',
-            'pixel-btn': '3px 3px 0px 0px #00f0ff'
+            'pixel-green': '3px 3px 0px 0px #39ff14'
           }
         }
       }
@@ -42,21 +43,30 @@
       image-rendering: crisp-edges;
     }
 
-    body {
-      background: 
-        linear-gradient(rgba(10, 15, 26, 0.60), rgba(10, 15, 26, 0.70)), 
-        url('ascii-magic-1.jpg');
-      background-size: cover;
-      background-position: center;
-      background-attachment: fixed;
-      background-repeat: no-repeat;
-      background-color: #0a0f1a;
+    /* Screen-Fit Background Styling */
+    html, body {
+      min-height: 100vh;
+      width: 100%;
+      margin: 0;
+      padding: 0;
     }
 
+    body {
+      background: 
+        linear-gradient(rgba(8, 13, 26, 0.70), rgba(8, 13, 26, 0.82)), 
+        url('ascii-magic-1.jpg');
+      background-size: cover;
+      background-position: center center;
+      background-attachment: fixed;
+      background-repeat: no-repeat;
+      background-color: #080d1a;
+    }
+
+    /* Tactile 8-bit Buttons */
     .pixel-btn {
       border: 2px solid #00f0ff;
       box-shadow: 4px 4px 0px #000000;
-      transition: all 0.1s ease-in-out;
+      transition: all 0.12s ease-in-out;
     }
     .pixel-btn:hover {
       transform: translate(-2px, -2px);
@@ -75,7 +85,7 @@
     .scanlines {
       background: linear-gradient(
         rgba(18, 16, 16, 0) 50%, 
-        rgba(0, 0, 0, 0.25) 50%
+        rgba(0, 0, 0, 0.15) 50%
       );
       background-size: 100% 4px;
       pointer-events: none;
@@ -83,7 +93,7 @@
 
     @keyframes loadPulse {
       0% { width: 10%; }
-      50% { width: 75%; }
+      50% { width: 80%; }
       100% { width: 100%; }
     }
     .loading-progress {
@@ -94,16 +104,16 @@
 <body class="min-h-screen text-slate-100 flex flex-col items-center justify-between p-4 selection:bg-neonCyan selection:text-black relative">
   <div class="fixed inset-0 scanlines z-50"></div>
 
-  <!-- Main Content Container -->
-  <main class="w-full max-w-lg mt-4 flex flex-col items-center z-10">
+  <!-- Main Container -->
+  <main class="w-full max-w-lg mt-3 flex flex-col items-center z-10">
 
     <!-- Top Pixel Address Bar -->
     <div class="w-full bg-slate-900/90 border-2 border-neonCyan/70 py-2 px-4 flex items-center justify-between shadow-pixel-box mb-6 backdrop-blur-md">
       <div class="flex items-center gap-2">
-        <span class="inline-block w-2.5 h-2.5 bg-neonCyan"></span>
+        <span class="inline-block w-2.5 h-2.5 bg-neonCyan animate-ping"></span>
         <span class="font-pixel text-[10px] text-neonCyan tracking-wider">technocratsgsv.tech</span>
       </div>
-      <span class="font-vt text-lg text-slate-400">GSV://PORTAL</span>
+      <span class="font-vt text-lg text-slate-400">GSV://ROOT</span>
     </div>
 
     <!-- Header Section with Official Logo -->
@@ -120,6 +130,50 @@
       <p class="font-vt text-xl text-sky-200 mt-1 uppercase tracking-widest">
         Gati Shakti Vishwavidyalaya
       </p>
+    </div>
+
+    <!-- Live Metrics Dashboard -->
+    <div class="w-full pixel-card bg-slate-900/90 p-4 mb-6 backdrop-blur-md">
+      <div class="flex items-center justify-between border-b-2 border-slate-800 pb-2 mb-3">
+        <h2 class="font-pixel text-xs text-neonCyan flex items-center gap-2">
+          <span>[#]</span> IMPACT_METRICS.DAT
+        </h2>
+        <span class="font-vt text-sm text-neonGreen animate-pulse">● LIVE DATA</span>
+      </div>
+
+      <div class="grid grid-cols-2 gap-3">
+        <!-- Stat 1 -->
+        <div class="border border-slate-800 p-2.5 bg-slate-950/70 text-center">
+          <div class="font-pixel text-lg sm:text-xl text-neonCyan font-bold">
+            <span class="counter" data-target="35">0</span>+
+          </div>
+          <div class="font-vt text-sm text-slate-300 uppercase leading-tight mt-0.5">Events Conducted</div>
+        </div>
+
+        <!-- Stat 2 -->
+        <div class="border border-slate-800 p-2.5 bg-slate-950/70 text-center">
+          <div class="font-pixel text-lg sm:text-xl text-neonGreen font-bold">
+            <span class="counter" data-target="1500">0</span>+
+          </div>
+          <div class="font-vt text-sm text-slate-300 uppercase leading-tight mt-0.5">Registrations</div>
+        </div>
+
+        <!-- Stat 3 -->
+        <div class="border border-slate-800 p-2.5 bg-slate-950/70 text-center">
+          <div class="font-pixel text-lg sm:text-xl text-neonYellow font-bold">
+            <span class="counter" data-target="20">0</span>+
+          </div>
+          <div class="font-vt text-sm text-slate-300 uppercase leading-tight mt-0.5">Hands-on Sessions</div>
+        </div>
+
+        <!-- Stat 4 -->
+        <div class="border border-slate-800 p-2.5 bg-slate-950/70 text-center">
+          <div class="font-pixel text-lg sm:text-xl text-sky-400 font-bold">
+            <span class="counter" data-target="50">0</span>+
+          </div>
+          <div class="font-vt text-sm text-slate-300 uppercase leading-tight mt-0.5">Active Members</div>
+        </div>
+      </div>
     </div>
 
     <!-- Link Hub Buttons -->
@@ -159,8 +213,8 @@
         <span class="font-vt text-2xl text-neonCyan group-hover:translate-x-1 transition-transform">►</span>
       </a>
 
-      <!-- GitHub Repo Button -->
-      <a href="https://github.com/rudr-code/technocrats" target="_blank" rel="noopener noreferrer"
+      <!-- GitHub Button -->
+      <a href="https://github.com/technocratsgsv" target="_blank" rel="noopener noreferrer"
          class="pixel-btn w-full bg-slate-900/90 hover:bg-slate-800 p-3 flex items-center justify-between group backdrop-blur-md">
         <div class="flex items-center gap-3">
           <div class="p-1.5 bg-neonCyan text-black flex items-center justify-center">
@@ -169,8 +223,8 @@
             </svg>
           </div>
           <div class="text-left">
-            <div class="font-pixel text-[11px] text-white group-hover:text-neonCyan">GITHUB REPO</div>
-            <div class="font-vt text-sm text-slate-400">Open-Source Code & Projects</div>
+            <div class="font-pixel text-[11px] text-white group-hover:text-neonCyan">GITHUB ORG</div>
+            <div class="font-vt text-sm text-slate-400">technocratsgsv • Open Source</div>
           </div>
         </div>
         <span class="font-vt text-2xl text-neonCyan group-hover:translate-x-1 transition-transform">►</span>
@@ -178,51 +232,36 @@
 
     </div>
 
-    <!-- Upcoming Events Section -->
-    <div class="w-full pixel-card bg-slate-900/90 p-4 mb-5 backdrop-blur-md">
+    <!-- Robonity Ecosystem Hub Section -->
+    <div class="w-full pixel-card bg-slate-900/90 p-4 mb-6 backdrop-blur-md border-t-2 border-t-neonCyan">
       <div class="flex items-center justify-between border-b-2 border-slate-800 pb-2 mb-3">
         <h2 class="font-pixel text-xs text-neonCyan flex items-center gap-2">
-          <span>[!]</span> UPCOMING EVENTS
+          <span>&gt;</span> ROBONITY // GSV ROBOTICS
         </h2>
-        <span class="font-vt text-sm text-emerald-400">ANNOUNCEMENTS</span>
+        <span class="font-vt text-sm text-sky-400">ECOSYSTEM</span>
       </div>
+      <p class="font-vt text-base text-slate-300 mb-3 leading-relaxed">
+        The premier robotics & engineering community platform. Build, share, compete and innovate with autonomous UGVs and rovers.
+      </p>
 
-      <div class="space-y-2.5">
-        <div class="border border-slate-800 p-2.5 bg-slate-950/60 flex items-start justify-between">
-          <div>
-            <div class="font-pixel text-[10px] text-white">GSV HACK-A-BIT '26</div>
-            <div class="font-vt text-sm text-slate-400">Annual 24-Hour University Hackathon</div>
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+        <!-- Robonity Main Portal -->
+        <a href="https://robonity-gsv.vercel.app/" target="_blank" rel="noopener noreferrer" 
+           class="p-3 bg-slate-950/80 border border-slate-700 hover:border-neonCyan transition-colors group">
+          <div class="font-pixel text-[10px] text-neonCyan flex items-center justify-between">
+            ROBONITY MAIN <span>↗</span>
           </div>
-          <span class="font-pixel text-[8px] bg-neonCyan text-black px-1.5 py-0.5">MAR 2026</span>
-        </div>
+          <p class="font-vt text-sm text-slate-400 mt-1">Autonomous Projects, Forum, SWARM-X & ARES-ROVER</p>
+        </a>
 
-        <div class="border border-slate-800 p-2.5 bg-slate-950/60 flex items-start justify-between">
-          <div>
-            <div class="font-pixel text-[10px] text-white">GIT & SYSTEM DESIGN 101</div>
-            <div class="font-vt text-sm text-slate-400">Hands-on student workshop</div>
+        <!-- RoboShare Sub-App -->
+        <a href="https://robonity-roboshare-gsv.vercel.app/" target="_blank" rel="noopener noreferrer"
+           class="p-3 bg-slate-950/80 border border-slate-700 hover:border-neonGreen transition-colors group">
+          <div class="font-pixel text-[10px] text-neonGreen flex items-center justify-between">
+            ROBOSHARE APP <span>↗</span>
           </div>
-          <span class="font-pixel text-[8px] bg-slate-800 text-slate-300 px-1.5 py-0.5">SOON</span>
-        </div>
-      </div>
-    </div>
-
-    <!-- Team Leads Section -->
-    <div class="w-full pixel-card bg-slate-900/90 p-4 mb-5 backdrop-blur-md">
-      <div class="border-b-2 border-slate-800 pb-2 mb-3">
-        <h2 class="font-pixel text-xs text-neonCyan flex items-center gap-2">
-          <span>&gt;</span> CORE LEADS // 2026
-        </h2>
-      </div>
-
-      <div class="grid grid-cols-2 gap-3">
-        <div class="border border-slate-800 p-2.5 bg-slate-950/60 text-center">
-          <div class="font-pixel text-[9px] text-white">CLUB LEAD</div>
-          <div class="font-vt text-base text-neonCyan mt-0.5">Technocrats Lead</div>
-        </div>
-        <div class="border border-slate-800 p-2.5 bg-slate-950/60 text-center">
-          <div class="font-pixel text-[9px] text-white">TECH HEAD</div>
-          <div class="font-vt text-base text-neonCyan mt-0.5">Dev & Systems</div>
-        </div>
+          <p class="font-vt text-sm text-slate-400 mt-1">Robotics knowledge base, components & hardware sharing</p>
+        </a>
       </div>
     </div>
 
@@ -242,5 +281,26 @@
     <div class="text-neonCyan">MADE BY RUDRANSH MISHRA (B.TECH AI&DS 2ND YR)</div>
   </footer>
 
+  <!-- Number Count-Up Animation Script -->
+  <script>
+    const counters = document.querySelectorAll('.counter');
+    counters.forEach(counter => {
+      const target = +counter.getAttribute('data-target');
+      let count = 0;
+      const speed = target > 500 ? 15 : 40;
+      const step = Math.ceil(target / speed);
+      
+      const updateCount = () => {
+        count += step;
+        if (count < target) {
+          counter.innerText = count;
+          setTimeout(updateCount, 25);
+        } else {
+          counter.innerText = target;
+        }
+      };
+      updateCount();
+    });
+  </script>
 </body>
 </html>
