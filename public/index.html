@@ -45,21 +45,10 @@
     }
 
     html, body {
-      min-height: 100vh;
-      width: 100%;
       margin: 0;
       padding: 0;
-    }
-
-    /* Fixed Screen Background Setup */
-    body {
-      background-image: 
-        linear-gradient(rgba(6, 10, 20, 0.72), rgba(6, 10, 20, 0.85)), 
-        url('ascii-magic-1.jpg');
-      background-size: cover;
-      background-position: center center;
-      background-attachment: fixed;
-      background-repeat: no-repeat;
+      width: 100%;
+      min-height: 100vh;
       background-color: #060a14;
     }
 
@@ -82,6 +71,7 @@
       box-shadow: 4px 4px 0px #000000;
     }
 
+    /* Screen Scanlines */
     .scanlines {
       background: linear-gradient(
         rgba(18, 16, 16, 0) 50%, 
@@ -101,8 +91,18 @@
     }
   </style>
 </head>
-<body class="min-h-screen text-slate-100 flex flex-col items-center justify-between p-4 selection:bg-neonCyan selection:text-black relative">
-  <div class="fixed inset-0 scanlines z-50"></div>
+<body class="min-h-screen text-slate-100 flex flex-col items-center justify-between p-4 selection:bg-neonCyan selection:text-black relative overflow-x-hidden">
+
+  <!-- Screen-Fit Full Background (Locks to 100% Screen Viewport) -->
+  <div class="fixed inset-0 w-full h-full z-0 overflow-hidden pointer-events-none">
+    <img 
+      src="ascii-magic-1.jpg" 
+      alt="GSV Heritage Building" 
+      class="w-full h-full object-cover object-center"
+    />
+    <div class="absolute inset-0 bg-gradient-to-b from-[#060a14]/75 via-[#060a14]/85 to-[#060a14]/95"></div>
+    <div class="absolute inset-0 scanlines"></div>
+  </div>
 
   <!-- Main Container -->
   <main class="w-full max-w-xl mt-3 flex flex-col items-center z-10">
@@ -146,21 +146,21 @@
           <div class="font-pixel text-lg sm:text-xl text-neonCyan font-bold">
             <span class="counter" data-target="35">0</span>+
           </div>
-          <div class="font-vt text-sm text-slate-300 uppercase leading-tight mt-0.5">Events Conducted</div>
+          <div class="font-vt text-sm text-slate-300 uppercase leading-tight mt-0.5">Events Conducted[cite: 1]</div>
         </div>
 
         <div class="border border-slate-800 p-2.5 bg-slate-950/70 text-center">
           <div class="font-pixel text-lg sm:text-xl text-neonGreen font-bold">
             <span class="counter" data-target="1500">0</span>+
           </div>
-          <div class="font-vt text-sm text-slate-300 uppercase leading-tight mt-0.5">Registrations</div>
+          <div class="font-vt text-sm text-slate-300 uppercase leading-tight mt-0.5">Registrations[cite: 1]</div>
         </div>
 
         <div class="border border-slate-800 p-2.5 bg-slate-950/70 text-center">
           <div class="font-pixel text-lg sm:text-xl text-neonYellow font-bold">
             <span class="counter" data-target="20">0</span>+
           </div>
-          <div class="font-vt text-sm text-slate-300 uppercase leading-tight mt-0.5">Hands-on Sessions</div>
+          <div class="font-vt text-sm text-slate-300 uppercase leading-tight mt-0.5">Hands-on Sessions[cite: 1]</div>
         </div>
 
         <div class="border border-slate-800 p-2.5 bg-slate-950/70 text-center">
@@ -234,7 +234,7 @@
         <h2 class="font-pixel text-xs text-neonCyan flex items-center gap-2">
           <span>&lt;/&gt;</span> PROGRAMMING DOMAIN
         </h2>
-        <span class="font-vt text-sm text-neonCyan">15+ EVENTS</span>
+        <span class="font-vt text-sm text-neonCyan">15+ EVENTS[cite: 1]</span>
       </div>
       <p class="font-vt text-base text-slate-300 mb-3 leading-relaxed">
         The coding & software wing of Technocrats. Takes students from syntax fundamentals to shipping real projects, algorithmic problem-solving, and competitive hackathons[cite: 3].
@@ -273,7 +273,7 @@
         <h2 class="font-pixel text-xs text-neonPink flex items-center gap-2">
           <span>★</span> PROFILE DEVELOPMENT
         </h2>
-        <span class="font-vt text-sm text-neonPink">12+ EVENTS</span>
+        <span class="font-vt text-sm text-neonPink">12+ EVENTS[cite: 1]</span>
       </div>
       <p class="font-vt text-base text-slate-300 mb-3 leading-relaxed">
         Bridges the gap between academics and industry through career readiness, public speaking, case study analysis, LinkedIn branding, and technical LaTeX documentation[cite: 1, 2].
