@@ -67,17 +67,35 @@
       padding: 0;
       width: 100%;
       min-height: 100vh;
-      background-color: #5FA8E0;
+      background-color: #060a14; /* Fallback */
       color: #161616;
     }
 
-    /* Sky Blue Dithered Desktop Background */
-    .desktop-bg {
+    /* Fixed 100% Screen-Fit Background Container */
+    .screen-bg {
       position: fixed;
-      inset: 0;
-      background-image: radial-gradient(#3E7FBF 20%, transparent 20%);
-      background-size: 8px 8px;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
       z-index: 0;
+      pointer-events: none;
+      overflow: hidden;
+    }
+
+    .screen-bg img {
+      width: 100vw;
+      height: 100vh;
+      object-fit: fill; /* Stretches and locks 100% to screen width & height */
+      display: block;
+    }
+
+    .scanlines {
+      background: linear-gradient(
+        rgba(18, 16, 16, 0) 50%, 
+        rgba(0, 0, 0, 0.25) 50%
+      );
+      background-size: 100% 4px;
       pointer-events: none;
     }
 
@@ -103,10 +121,14 @@
     }
   </style>
 </head>
-<body class="font-vt relative pb-20 overflow-x-hidden selection:bg-retro-blue selection:text-retro-white">
+<body class="font-vt relative pb-16 overflow-x-hidden selection:bg-retro-blue selection:text-retro-white">
 
-  <!-- Dithered Desktop Background -->
-  <div class="desktop-bg"></div>
+  <!-- 100% Screen-Fit Background Container with Overlay -->
+  <div class="screen-bg">
+    <img src="ascii-magic-1.jpg" alt="GSV Background" />
+    <div class="absolute inset-0 bg-gradient-to-b from-[#060a14]/60 via-[#060a14]/75 to-[#060a14]/90"></div>
+    <div class="absolute inset-0 scanlines"></div>
+  </div>
 
   <!-- Main Container (Desktop Area) -->
   <main class="w-full max-w-xl mx-auto mt-6 px-4 flex flex-col items-center z-10 relative space-y-6">
@@ -143,28 +165,28 @@
       <div class="p-4 grid grid-cols-2 gap-4 bg-retro-cream">
         <!-- Stat Boxes -->
         <div class="bg-retro-white border-2 border-retro-black shadow-pixel-sm p-3 text-center">
-          <div class="font-pixel text-xl text-retro-blue">
+          <div class="font-pixel text-lg sm:text-xl text-retro-blue">
             <span class="counter" data-target="35">0</span>+
           </div>
-          <div class="text-base font-bold leading-tight mt-1 text-retro-black">Events[cite: 1]</div>
+          <div class="text-sm sm:text-base font-bold leading-tight mt-1 text-retro-black">Events[cite: 1]</div>
         </div>
         <div class="bg-retro-white border-2 border-retro-black shadow-pixel-sm p-3 text-center">
-          <div class="font-pixel text-xl text-retro-green">
+          <div class="font-pixel text-lg sm:text-xl text-retro-green">
             <span class="counter" data-target="1500">0</span>+
           </div>
-          <div class="text-base font-bold leading-tight mt-1 text-retro-black">Registrations[cite: 1]</div>
+          <div class="text-sm sm:text-base font-bold leading-tight mt-1 text-retro-black">Registrations[cite: 1]</div>
         </div>
         <div class="bg-retro-white border-2 border-retro-black shadow-pixel-sm p-3 text-center">
-          <div class="font-pixel text-xl text-retro-orange">
+          <div class="font-pixel text-lg sm:text-xl text-retro-orange">
             <span class="counter" data-target="20">0</span>+
           </div>
-          <div class="text-base font-bold leading-tight mt-1 text-retro-black">Hands-on Sessions[cite: 1]</div>
+          <div class="text-sm sm:text-base font-bold leading-tight mt-1 text-retro-black">Hands-on Sessions[cite: 1]</div>
         </div>
         <div class="bg-retro-white border-2 border-retro-black shadow-pixel-sm p-3 text-center">
-          <div class="font-pixel text-xl text-retro-magenta">
+          <div class="font-pixel text-lg sm:text-xl text-retro-magenta">
             <span class="counter" data-target="50">0</span>+
           </div>
-          <div class="text-base font-bold leading-tight mt-1 text-retro-black">Active Members[cite: 1]</div>
+          <div class="text-sm sm:text-base font-bold leading-tight mt-1 text-retro-black">Active Members[cite: 1]</div>
         </div>
       </div>
     </div>
@@ -286,7 +308,7 @@
     </div>
 
     <!-- ROBONITY ECOSYSTEM -->
-    <div class="w-full bg-retro-cream border-2 border-retro-black shadow-pixel flex flex-col mb-4">
+    <div class="w-full bg-retro-cream border-2 border-retro-black shadow-pixel flex flex-col">
       <div class="bg-retro-teal border-b-2 border-retro-black px-3 py-1.5">
         <span class="font-pixel text-[10px] text-retro-white">C:\ROBONITY_ECOSYSTEM</span>
       </div>
@@ -309,8 +331,14 @@
       </div>
     </div>
 
-    <!-- Retro Loading Bar -->
-    <div class="w-full flex flex-col items-center gap-2 mb-8">
+    <!-- Credit & Loading Bar -->
+    <div class="w-full flex flex-col items-center gap-2 mt-4 pb-12">
+      <!-- Added Credit Back Here -->
+      <div class="text-center font-pixel text-[8px] text-white/80 space-y-2 mb-4 drop-shadow-md">
+        <div>TECHNOCRATS • GATI SHAKTI VISHWAVIDYALAYA</div>
+        <div class="text-[#fefe33]">MADE BY RUDRANSH MISHRA (B.TECH AI&DS 2ND YR)</div>
+      </div>
+
       <span class="font-pixel text-[8px] text-retro-black bg-retro-cream px-2 py-1 border-2 border-retro-black">SYSTEM_READY: 100%</span>
       <div class="w-64 h-6 bg-retro-white border-2 border-retro-black shadow-pixel-sm p-1">
         <div class="loading-progress h-full bg-retro-greenLoad"></div>
